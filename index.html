@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP-Gruppe Preisliste</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .header a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #ffd700;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .card-header {
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .price-small {
+            font-size: 1rem;
+            color: #666;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .payment-methods {
+            font-size: 0.85rem;
+            color: #555;
+            padding: 8px 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            padding: 12px 0;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact {
+            text-align: center;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            border: 3px solid #ffd700;
+        }
+
+        .contact p {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.4rem;
+            padding: 15px 40px;
+            border-radius: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .price {
+                font-size: 2.5rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VIP-GRUPPE – PREISLISTE & LEISTUNGEN</h1>
+            <p>Bei Interesse melde dich bei <a href="https://t.me/Leonax3" target="_blank">Leonax3</a></p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Paket 1 -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h2 class="card-title">1️⃣ VIP Direct Links</h2>
+                    <div class="price">10€</div>
+                    <div class="price-note">einmalig</div>
+                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                </div>
+                <ul class="features">
+                    <li>Zugang zur neuen VIP-Gruppe</li>
+                    <li>Alle Links ohne Linkvertise</li>
+                    <li>Ohne Werbung & URL-Shortener</li>
+                    <li>Direktlinks zu Content & Downloads</li>
+                    <li>Keine Wartezeiten & Pop-ups</li>
+                    <li>Übersichtliche & saubere Struktur</li>
+                </ul>
+            </div>
+
+            <!-- Paket 2 -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h2 class="card-title">2️⃣ VIP Standard</h2>
+                    <div class="price">25€</div>
+                    <div class="price-note">einmalig</div>
+                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                </div>
+                <ul class="features">
+                    <li>60.000+ Creatorinnen (OF, Breezles & mehr)</li>
+                    <li>Täglich 25.000+ neue Amateur-Bilder & Videos</li>
+                    <li>Internationale & deutsche Influencer</li>
+                    <li>Unbegrenzter Zugriff</li>
+                    <li>Premium-Support</li>
+                    <li>Nur Quellen aus Webseiten & Telegramgruppen</li>
+                </ul>
+            </div>
+
+            <!-- Paket 3 -->
+            <div class="pricing-card featured">
+                <div class="badge">AKTION</div>
+                <div class="card-header">
+                    <h2 class="card-title">3️⃣ VIP Plus</h2>
+                    <div class="price">50€ <span class="price-small">75€</span></div>
+                    <div class="price-note">einmalig • Aktionspreis</div>
+                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                </div>
+                <ul class="features">
+                    <li>Content direkt von unserer Seite</li>
+                    <li>Regelmäßig neue OF Models (DE/INT)</li>
+                    <li>Pro Drop ca. 2000-5000 deutsche Amateur-Videos</li>
+                    <li>Exklusive Kurzlinks & Komfort-Tools</li>
+                    <li>Linkvertise-Bypasser inklusive</li>
+                    <li>Kuratierter Premium-Content</li>
+                    <li>Große Creator-Datenbank mit Suchfunktion</li>
+                    <li>Guides & How-Tos für Archivierung</li>
+                    <li>Premium-Support</li>
+                    <li>Monetarisierungs-Anleitungen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact">
+            <p>📱 Bei Interesse jetzt kontaktieren:</p>
+            <a href="https://t.me/Leonax3" target="_blank">➜ Leonax3 auf Telegram</a>
+        </div>
+    </div>
+</body>
+</html>
