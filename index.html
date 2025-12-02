@@ -46,6 +46,18 @@
             font-weight: 600;
         }
 
+        .announcement {
+            background: #ffd700;
+            color: #333;
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -78,6 +90,18 @@
             right: 20px;
             background: #ffd700;
             color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #4ade80;
+            color: white;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -122,6 +146,12 @@
             background: #f5f5f5;
             border-radius: 8px;
             margin-bottom: 20px;
+        }
+
+        .payment-methods.highlight {
+            background: #e8f5e9;
+            border: 2px solid #4ade80;
+            font-weight: 600;
         }
 
         .features {
@@ -196,6 +226,10 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
+
+            .announcement {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -204,6 +238,10 @@
         <div class="header">
             <h1>VIP-GRUPPE – PREISLISTE & LEISTUNGEN</h1>
             <p>Bei Interesse melde dich bei <a href="https://t.me/Leonax3" target="_blank">Leonax3</a></p>
+        </div>
+
+        <div class="announcement">
+            🎉 NEU: Jetzt auch Zahlung mit Paysafecard möglich! (ab 25€)
         </div>
 
         <div class="pricing-grid">
@@ -227,11 +265,12 @@
 
             <!-- Paket 2 -->
             <div class="pricing-card">
+                <div class="new-badge">NEU 💳</div>
                 <div class="card-header">
                     <h2 class="card-title">2️⃣ VIP Standard</h2>
                     <div class="price">25€</div>
                     <div class="price-note">einmalig</div>
-                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                    <div class="payment-methods highlight">💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
                 </div>
                 <ul class="features">
                     <li>60.000+ Creatorinnen (OF, Breezles & mehr)</li>
@@ -246,11 +285,12 @@
             <!-- Paket 3 -->
             <div class="pricing-card featured">
                 <div class="badge">AKTION</div>
+                <div class="new-badge">NEU 💳</div>
                 <div class="card-header">
                     <h2 class="card-title">3️⃣ VIP Plus</h2>
                     <div class="price">50€ <span class="price-small">75€</span></div>
                     <div class="price-note">einmalig • Aktionspreis</div>
-                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                    <div class="payment-methods highlight">💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
                 </div>
                 <ul class="features">
                     <li>Content direkt von unserer Seite</li>
