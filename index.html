@@ -441,7 +441,7 @@
         <div class="reviews-section">
             <h2 class="reviews-title">⭐ Kundenbewertungen</h2>
             <div class="reviews-slider">
-                <div class="review-card">
+                <div class="review-card" id="review1" style="display: block;">
                     <div class="stars">
                         <span class="star filled">★</span>
                         <span class="star filled">★</span>
@@ -464,11 +464,65 @@ Viele Grüße</div>
                         <div class="telegram-time">08.12.2025</div>
                     </div>
                 </div>
+                <div class="review-card" id="review2" style="display: none;">
+                    <div class="stars">
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star filled">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="telegram-mockup">
+                        <div class="telegram-header">
+                            <div class="telegram-avatar">VK</div>
+                            <div class="telegram-info">
+                                <div class="telegram-name">Verifizierter Käufer</div>
+                                <div class="telegram-badge">VIP Direct Links Mitglied</div>
+                            </div>
+                        </div>
+                        <div class="telegram-message">Baba Gruppe bin sehr zu Frieden mit den leaks. Würde so 4/5 Sterne geben. Weil keine Ahnung iwie iwas fehlt, könnte ich aber net benennen warum. Im Großen und Ganzen für den Preis, super okay.</div>
+                        <div class="telegram-time">09.12.2025</div>
+                    </div>
+                </div>
                 <div class="slider-nav">
-                    <div class="slider-dot active"></div>
+                    <div class="slider-dot active" onclick="showReview(1)"></div>
+                    <div class="slider-dot" onclick="showReview(2)"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        let currentReview = 1;
+        const totalReviews = 2;
+
+        function showReview(num) {
+            // Hide all reviews
+            for (let i = 1; i <= totalReviews; i++) {
+                document.getElementById('review' + i).style.display = 'none';
+            }
+            
+            // Show selected review
+            document.getElementById('review' + num).style.display = 'block';
+            
+            // Update dots
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, index) => {
+                if (index === num - 1) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            currentReview = num;
+        }
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            currentReview = currentReview >= totalReviews ? 1 : currentReview + 1;
+            showReview(currentReview);
+        }, 5000);
+    </script>
 </body>
 </html>
