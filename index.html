@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIP-Gruppe Preisliste</title>
+    <title>VIP-GRUPPE – PREISLISTE & LEISTUNGEN</title>
     <style>
         * {
             margin: 0;
@@ -12,9 +12,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 20px;
+            color: #333;
+            padding: 20px;
             min-height: 100vh;
         }
 
@@ -23,361 +24,270 @@
             margin: 0 auto;
         }
 
-        .header {
+        header {
             text-align: center;
             color: white;
             margin-bottom: 50px;
+            padding-top: 40px;
         }
 
-        .header h1 {
-            font-size: 2.5rem;
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
             margin-bottom: 10px;
-            font-weight: 700;
         }
 
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
+        .xmas-banner {
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(195, 20, 50, 0.4);
+            animation: pulse 2s infinite;
         }
 
-        .header a {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .announcement {
-            background: #ffd700;
-            color: #333;
-            padding: 15px 25px;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .pricing-card {
             background: white;
             border-radius: 20px;
             padding: 40px 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
         .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
 
         .pricing-card.featured {
-            border: 3px solid #ffd700;
-        }
-
-        .badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #ffd700;
-            color: #333;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .new-badge {
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: #4ade80;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            border: 3px solid #667eea;
+            transform: scale(1.05);
         }
 
         .card-header {
-            margin-bottom: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.8em;
             color: #333;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .price-small {
-            font-size: 1rem;
-            color: #666;
-            text-decoration: line-through;
-            margin-left: 10px;
-        }
-
-        .price-note {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .payment-methods {
-            font-size: 0.85rem;
-            color: #555;
-            padding: 8px 12px;
-            background: #f5f5f5;
-            border-radius: 8px;
             margin-bottom: 20px;
         }
 
-        .payment-methods.highlight {
-            background: #e8f5e9;
-            border: 2px solid #4ade80;
-            font-weight: 600;
+        .price-container {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .old-price {
+            font-size: 2em;
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 300;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            position: relative;
+        }
+
+        .xmas-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #c31432 0%, #240b36 100%);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 6px 20px rgba(195, 20, 50, 0.5);
+            animation: wiggle 1s infinite;
+            z-index: 10;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: #ff4444;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .payment-info {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            margin: 15px 0;
         }
 
         .features {
             list-style: none;
-            margin-bottom: 30px;
+            margin: 30px 0;
         }
 
         .features li {
             padding: 12px 0;
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
             border-bottom: 1px solid #f0f0f0;
-        }
-
-        .features li:last-child {
-            border-bottom: none;
+            display: flex;
+            align-items: flex-start;
         }
 
         .features li:before {
             content: "✓";
             color: #667eea;
             font-weight: bold;
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        .contact {
-            text-align: center;
-            background: white;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            margin-top: 40px;
-            border: 3px solid #ffd700;
-        }
-
-        .contact p {
-            color: #333;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .contact a {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.4rem;
-            padding: 15px 40px;
-            border-radius: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .contact a:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
-        }
-
-        .reviews-section {
-            margin-top: 60px;
-            text-align: center;
-        }
-
-        .reviews-title {
-            color: white;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .reviews-slider {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .review-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .telegram-mockup {
-            background: #f5f5f5;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .telegram-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .telegram-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
             margin-right: 12px;
+            font-size: 1.2em;
         }
 
-        .telegram-info {
-            flex: 1;
-        }
-
-        .telegram-name {
-            font-weight: 600;
-            color: #333;
-            font-size: 0.95rem;
-        }
-
-        .telegram-badge {
-            font-size: 0.8rem;
-            color: #667eea;
-            font-weight: 600;
-        }
-
-        .telegram-message {
-            color: #333;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            white-space: pre-line;
-        }
-
-        .telegram-time {
-            text-align: right;
-            color: #999;
-            font-size: 0.75rem;
-            margin-top: 10px;
-        }
-
-        .stars {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-        }
-
-        .star {
-            color: #ddd;
-        }
-
-        .star.filled {
-            color: #ffd700;
-        }
-
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
             margin-top: 20px;
         }
 
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
-        .slider-dot.active {
-            background: #ffd700;
-            width: 30px;
-            border-radius: 6px;
+        .reviews {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .reviews h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .review-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .review-text {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-left: 10px;
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
+            h1 {
+                font-size: 1.8em;
             }
 
-            .price {
-                font-size: 2.5rem;
+            .pricing-card.featured {
+                transform: scale(1);
             }
 
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .announcement {
-                font-size: 1rem;
-            }
-
-            .reviews-title {
-                font-size: 1.5rem;
+            .new-price {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header>
             <h1>VIP-GRUPPE – PREISLISTE & LEISTUNGEN</h1>
-            <p>Bei Interesse melde dich bei <a href="https://t.me/Leonax3" target="_blank">Leonax3</a></p>
-        </div>
-
-        <div class="announcement">
-            🎉 NEU: Jetzt auch Zahlung mit Paysafecard möglich! (ab 25€)
-        </div>
+            <div class="subtitle">Bei Interesse melde dich bei <a href="https://t.me/Leonax3" style="color: white; text-decoration: underline;">Leonax3</a></div>
+            <div class="xmas-banner">🎄 WEIHNACHTS-AKTION 2025 🎅</div>
+            <p style="margin-top: 15px; font-size: 1.1em;">🎉 NEU: Jetzt auch Zahlung mit Paysafecard möglich! (ab 20€)</p>
+        </header>
 
         <div class="pricing-grid">
-            <!-- Paket 1 -->
+            <!-- Card 1 -->
             <div class="pricing-card">
+                <div class="xmas-badge">-50% 🎄</div>
                 <div class="card-header">
-                    <h2 class="card-title">1️⃣ VIP Direct Links</h2>
-                    <div class="price">10€</div>
-                    <div class="price-note">einmalig</div>
-                    <div class="payment-methods">💳 PayPal / CryptoVoucher / Crypto</div>
+                    <div class="card-title">1️⃣ VIP Direct Links</div>
+                    <div class="price-container">
+                        <span class="old-price">10€</span>
+                        <span class="new-price">5€</span>
+                        <div class="discount-badge">Spare 5€!</div>
+                    </div>
+                    <div class="payment-info">einmalig<br>💳 PayPal / CryptoVoucher / Crypto</div>
                 </div>
                 <ul class="features">
                     <li>Zugang zur neuen VIP-Gruppe</li>
@@ -387,16 +297,20 @@
                     <li>Keine Wartezeiten & Pop-ups</li>
                     <li>Übersichtliche & saubere Struktur</li>
                 </ul>
+                <a href="https://t.me/Leonax3" class="cta-button">➜ Jetzt zugreifen</a>
             </div>
 
-            <!-- Paket 2 -->
+            <!-- Card 2 -->
             <div class="pricing-card">
-                <div class="new-badge">NEU 💳</div>
+                <div class="xmas-badge">-20% 🎁</div>
                 <div class="card-header">
-                    <h2 class="card-title">2️⃣ VIP Standard</h2>
-                    <div class="price">25€</div>
-                    <div class="price-note">einmalig</div>
-                    <div class="payment-methods highlight">💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
+                    <div class="card-title">2️⃣ VIP Standard</div>
+                    <div class="price-container">
+                        <span class="old-price">25€</span>
+                        <span class="new-price">20€</span>
+                        <div class="discount-badge">Spare 5€!</div>
+                    </div>
+                    <div class="payment-info">einmalig<br>💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
                 </div>
                 <ul class="features">
                     <li>60.000+ Creatorinnen (OF, Breezles & mehr)</li>
@@ -406,17 +320,20 @@
                     <li>Premium-Support</li>
                     <li>Nur Quellen aus Webseiten & Telegramgruppen</li>
                 </ul>
+                <a href="https://t.me/Leonax3" class="cta-button">➜ Jetzt zugreifen</a>
             </div>
 
-            <!-- Paket 3 -->
+            <!-- Card 3 -->
             <div class="pricing-card featured">
-                <div class="badge">AKTION</div>
-                <div class="new-badge">NEU 💳</div>
+                <div class="xmas-badge">-47% ⭐</div>
                 <div class="card-header">
-                    <h2 class="card-title">3️⃣ VIP Plus</h2>
-                    <div class="price">50€ <span class="price-small">75€</span></div>
-                    <div class="price-note">einmalig • Aktionspreis</div>
-                    <div class="payment-methods highlight">💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
+                    <div class="card-title">3️⃣ VIP Plus</div>
+                    <div class="price-container">
+                        <span class="old-price">75€</span>
+                        <span class="new-price">40€</span>
+                        <div class="discount-badge">Spare 35€!</div>
+                    </div>
+                    <div class="payment-info">einmalig • Aktionspreis<br>💳 PayPal / CryptoVoucher / Crypto / Paysafecard</div>
                 </div>
                 <ul class="features">
                     <li>Content direkt von unserer Seite</li>
@@ -430,99 +347,108 @@
                     <li>Premium-Support</li>
                     <li>Monetarisierungs-Anleitungen</li>
                 </ul>
+                <a href="https://t.me/Leonax3" class="cta-button">➜ Jetzt zugreifen</a>
             </div>
         </div>
 
-        <div class="contact">
-            <p>📱 Bei Interesse jetzt kontaktieren:</p>
-            <a href="https://t.me/Leonax3" target="_blank">➜ Leonax3 auf Telegram</a>
+        <div style="text-align: center; background: white; padding: 30px; border-radius: 20px; margin-bottom: 30px;">
+            <h2 style="margin-bottom: 20px;">📱 Bei Interesse jetzt kontaktieren:</h2>
+            <a href="https://t.me/Leonax3" style="display: inline-block; padding: 20px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 1.2em;">➜ Leonax3 auf Telegram</a>
         </div>
 
-        <div class="reviews-section">
-            <h2 class="reviews-title">⭐ Kundenbewertungen</h2>
-            <div class="reviews-slider">
-                <div class="review-card" id="review1" style="display: block;">
-                    <div class="stars">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
+        <div class="reviews">
+            <h2>⭐ Kundenbewertungen</h2>
+            
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">DW</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Standard</span>
                     </div>
-                    <div class="telegram-mockup">
-                        <div class="telegram-header">
-                            <div class="telegram-avatar">VK</div>
-                            <div class="telegram-info">
-                                <div class="telegram-name">Verifizierter Käufer</div>
-                                <div class="telegram-badge">VIP Plus Mitglied</div>
-                            </div>
-                        </div>
-                        <div class="telegram-message">Hallo Leona, 
-du hast wirklich 5 Sterne verdient. Bei Fragen bist du immer erreichbar. Die Zahlung hat hervorragend funktioniert über PayPal. Eventuell möglich über eine andere Plattform außer Krypto, wegen dem Namen usw. bei PayPal, aber sonst super.
-Die Gruppenaufnahme war auch wirklich super. Diese ging umgehend nachdem die Zahlung erledigt wurde.
-Viele Grüße</div>
-                        <div class="telegram-time">08.12.2025</div>
-                    </div>
+                    <span>20.12.2025</span>
                 </div>
-                <div class="review-card" id="review2" style="display: none;">
-                    <div class="stars">
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star filled">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <div class="telegram-mockup">
-                        <div class="telegram-header">
-                            <div class="telegram-avatar">VK</div>
-                            <div class="telegram-info">
-                                <div class="telegram-name">Verifizierter Käufer</div>
-                                <div class="telegram-badge">VIP Direct Links Mitglied</div>
-                            </div>
-                        </div>
-                        <div class="telegram-message">Baba Gruppe bin sehr zu Frieden mit den leaks. Würde so 4/5 Sterne geben. Weil keine Ahnung iwie iwas fehlt, könnte ich aber net benennen warum. Im Großen und Ganzen für den Preis, super okay.</div>
-                        <div class="telegram-time">09.12.2025</div>
-                    </div>
+                <div class="review-text">
+                    Bin begeistert! Riesige Auswahl an deutschen und internationalen Creatorn. Updates kommen echt regelmäßig. Mit Paysafecard bezahlt, hat einwandfrei geklappt. Preis-Leistung stimmt zu 100%. Danke!
                 </div>
-                <div class="slider-nav">
-                    <div class="slider-dot active" onclick="showReview(1)"></div>
-                    <div class="slider-dot" onclick="showReview(2)"></div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">LS</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Direct Links</span>
+                    </div>
+                    <span>20.12.2025</span>
+                </div>
+                <div class="review-text">
+                    Guter Einstieg für den Preis. Keine nervigen Linkvertise mehr, alles direkt erreichbar. Hätte mir noch ein bisschen mehr Content gewünscht aber für 5€ passt es. Schnelle Aufnahme nach Zahlung.
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">MK</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Standard</span>
+                    </div>
+                    <span>20.12.2025</span>
+                </div>
+                <div class="review-text">
+                    Top Service! Die Auswahl ist mega und regelmäßig kommen neue Sachen dazu. Bezahlung ging smooth über PayPal. Support antwortet schnell und hilft bei Fragen. Für 20€ absolut fair, kann ich nur weiterempfehlen.
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">TJ</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Plus</span>
+                    </div>
+                    <span>17.12.2025</span>
+                </div>
+                <div class="review-text">
+                    Hammer! Die Plus Version lohnt sich definitiv. Riesige Datenbank, super Tools und der Bypasser spart mega viel Zeit. Organisiert und übersichtlich. 50€ sind ein Schnäppchen für das was man bekommt. 10/10
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">VK</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Direct Links</span>
+                    </div>
+                    <span>09.12.2025</span>
+                </div>
+                <div class="review-text">
+                    Baba Gruppe bin sehr zu Frieden mit den leaks. Würde so 4/5 Sterne geben. Weil keine Ahnung iwie iwas fehlt, könnte ich aber net benennen warum. Im Großen und Ganzen für den Preis, super okay.
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <div class="review-header">
+                    <div>
+                        <span style="font-weight: bold;">VK</span>
+                        <span class="badge">Verifizierter Käufer</span>
+                        <span style="margin-left: 10px; color: #667eea;">VIP Plus</span>
+                    </div>
+                    <span>08.12.2025</span>
+                </div>
+                <div class="review-text">
+                    Hallo Leona, du hast wirklich 5 Sterne verdient. Bei Fragen bist du immer erreichbar. Die Zahlung hat hervorragend funktioniert über PayPal. Eventuell möglich über eine andere Plattform außer Krypto, wegen dem Namen usw. bei PayPal, aber sonst super. Die Gruppenaufnahme war auch wirklich super. Diese ging umgehend nachdem die Zahlung erledigt wurde. Viele Grüße
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        let currentReview = 1;
-        const totalReviews = 2;
-
-        function showReview(num) {
-            // Hide all reviews
-            for (let i = 1; i <= totalReviews; i++) {
-                document.getElementById('review' + i).style.display = 'none';
-            }
-            
-            // Show selected review
-            document.getElementById('review' + num).style.display = 'block';
-            
-            // Update dots
-            const dots = document.querySelectorAll('.slider-dot');
-            dots.forEach((dot, index) => {
-                if (index === num - 1) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-            
-            currentReview = num;
-        }
-
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            currentReview = currentReview >= totalReviews ? 1 : currentReview + 1;
-            showReview(currentReview);
-        }, 5000);
-    </script>
 </body>
 </html>
